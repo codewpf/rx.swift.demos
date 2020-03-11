@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import RxDataSources
 
 protocol UICellReuseIdentifer {
     
@@ -31,4 +32,20 @@ struct Person {
         self.gender = gender
         self.age = age
     }
+}
+
+
+
+struct RXDemoSectionModel: SectionModelType {
+    typealias Item = Person
+
+    
+    var items: [Person]
+    
+    
+    init(original: Self, items: [Self.Item]) {
+        self = original
+        self.items = items
+    }
+    
 }
